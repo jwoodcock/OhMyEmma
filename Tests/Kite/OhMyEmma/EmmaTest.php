@@ -75,7 +75,7 @@ class EmmaTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEmpty($emma->control);
         $emma->build('members', $request);
-        $this->assertInstanceOf("Kite\OhMyEmma\Members", $emma->control);
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Members", $emma->control);
 
     }
 }

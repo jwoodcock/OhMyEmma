@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1362338565">
-  <project timestamp="1362338565">
+<coverage generated="1362340150">
+  <project timestamp="1362340150">
     <package name="Kite\OhMyEmma">
       <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Emma.php">
         <class name="Emma" namespace="Kite\OhMyEmma">
@@ -44,14 +44,68 @@
         <line num="119" type="stmt" count="0"/>
         <metrics loc="118" ncloc="81" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="15" elements="35" coveredelements="16"/>
       </file>
-      <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Members.php">
+      <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Interfaces/Fields.php">
         <class name="Members" namespace="Kite\OhMyEmma">
-          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
         </class>
         <line num="8" type="method" name="__construct" crap="2" count="0"/>
+        <line num="9" type="stmt" count="0"/>
         <line num="11" type="stmt" count="0"/>
-        <line num="14" type="stmt" count="0"/>
-        <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+        <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Interfaces/Groups.php">
+        <class name="Members" namespace="Kite\OhMyEmma">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="8" type="method" name="__construct" crap="2" count="0"/>
+        <line num="9" type="stmt" count="0"/>
+        <line num="11" type="stmt" count="0"/>
+        <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Interfaces/Mailings.php">
+        <class name="Members" namespace="Kite\OhMyEmma">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="8" type="method" name="__construct" crap="2" count="0"/>
+        <line num="9" type="stmt" count="0"/>
+        <line num="11" type="stmt" count="0"/>
+        <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Interfaces/Response.php">
+        <class name="Members" namespace="Kite\OhMyEmma">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="8" type="method" name="__construct" crap="2" count="0"/>
+        <line num="9" type="stmt" count="0"/>
+        <line num="11" type="stmt" count="0"/>
+        <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Interfaces/Searches.php">
+        <class name="Members" namespace="Kite\OhMyEmma">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="8" type="method" name="__construct" crap="2" count="0"/>
+        <line num="9" type="stmt" count="0"/>
+        <line num="11" type="stmt" count="0"/>
+        <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Interfaces/Triggers.php">
+        <class name="Members" namespace="Kite\OhMyEmma">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="8" type="method" name="__construct" crap="2" count="0"/>
+        <line num="9" type="stmt" count="0"/>
+        <line num="11" type="stmt" count="0"/>
+        <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Interfaces/Webhooks.php">
+        <class name="Members" namespace="Kite\OhMyEmma">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="8" type="method" name="__construct" crap="2" count="0"/>
+        <line num="9" type="stmt" count="0"/>
+        <line num="11" type="stmt" count="0"/>
+        <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
       </file>
       <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Request.php">
         <class name="Request" namespace="Kite\OhMyEmma">
@@ -91,6 +145,17 @@
         <metrics loc="133" ncloc="68" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="24" elements="30" coveredelements="25"/>
       </file>
     </package>
-    <metrics files="3" loc="264" ncloc="162" classes="3" methods="5" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="62" coveredstatements="39" elements="67" coveredelements="41"/>
+    <package name="Kite\OhMyEmma\Interfaces">
+      <file name="/Users/Kite/work/OhMyEmma/Source/Kite/OhMyEmma/Interfaces/Members.php">
+        <class name="Members" namespace="Kite\OhMyEmma\Interfaces">
+          <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+        </class>
+        <line num="8" type="method" name="__construct" crap="2" count="0"/>
+        <line num="11" type="stmt" count="0"/>
+        <line num="14" type="stmt" count="0"/>
+        <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+      </file>
+    </package>
+    <metrics files="10" loc="355" ncloc="253" classes="10" methods="12" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="83" coveredstatements="39" elements="95" coveredelements="41"/>
   </project>
 </coverage>
