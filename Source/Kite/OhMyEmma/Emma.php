@@ -33,34 +33,6 @@ class Emma
     public $control = '';
 
     /**
-     * Emma account id from configuration.
-     *
-     * @var string
-     */
-    private $_account_id = '';
-
-    /**
-     * Emma API URL 
-     *
-     * @var string
-     */
-    private $_base_url = '';
-
-    /**
-     * Emma public key from configuration.
-     *
-     * @var string
-     */
-    private $_public_key = '';
-
-    /**
-     * Emma private key from configuration.
-     *
-     * @var string
-     */
-    private $_private_key = '';
-
-    /**
      * cURL request object
      *
      * @var object 
@@ -80,16 +52,18 @@ class Emma
      * @param string $interface
      */
 
-    public function _construct(
+    public function __construct(
         $account_id, 
         $public_key, 
         $private_key, 
         $interface = '')
     {
-        $this->_account_id = $account_id;
-        $this->_public_key = $public_key;
-        $this->_private_key = $private_key;
-        $this->_request = new Request();
+
+        $this->_request = new Request(
+            $account_id, 
+            $public_key, 
+            $private_key
+        );
 
         if (isset($interface) && $interface != '') {
             $this->build($interface, $this->_request);
