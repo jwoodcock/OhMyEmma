@@ -18,7 +18,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Request;
+        $this->object = new Request('','','');
     }
 
     /**
@@ -30,15 +30,15 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Kite\OhMyEmma\Request::_construct
+     * @covers Kite\OhMyEmma\Request::__construct
      */
-    public function test_construct()
+    public function testConstruct()
     {
         $request = new Request(
             '111',
             'aaa',
             'bbb',
-            'http://httpbin.org/'
+            'http://httpbin.org'
         );
         $this->assertInstanceOf('Kite\OhMyEmma\Request', $request);
         $this->assertEmpty($request->responseCode);
@@ -47,7 +47,6 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Kite\OhMyEmma\Request::makeRequest
-     * @todo   Implement testMakeRequest().
      */
     public function testMakeRequest()
     {
@@ -55,10 +54,41 @@ class RequestTest extends \PHPUnit_Framework_TestCase
             '111',
             'aaa',
             'bbb',
-            'http://httpbin.org/'
+            'http://httpbin.org'
         );
         $request->makeRequest('');
         $this->assertNotEmpty($request->responseCode);
         $this->assertNotEmpty($request->response);
+        $this->assertEquals($request->responseCode, '200');
     }
+
+    /**
+     * @covers Kite\OhMyEmma\Request::makeRequest
+     */
+    public function testPostMakeRequest()
+    {
+        $request = new Request(
+            '111',
+            'aaa',
+            'bbb',
+            'http://httpbin.org/post'
+        );
+        $postData = array(
+            'blue'=>'yes',
+            'red'=>'yes',
+            'yellow'=>'no'
+        );
+
+        $this->assertEmpty($request->postData);
+        $this->assertEquals('GET', $request->method);
+
+        $request->method = "POST";
+        $request->postData = $postData;
+        $request->makeRequest('');
+
+        $this->assertNotEmpty($request->responseCode);
+        $this->assertNotEmpty($request->response);
+        $this->assertEquals($request->responseCode, '200');
+    }
+
 }

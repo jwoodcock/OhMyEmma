@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="5" assertions="11" failures="0" errors="0" time="0.301034">
-    <testsuite name="Kite\OhMyEmma\EmmaTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/EmmaTest.php" namespace="Kite\OhMyEmma" fullPackage="Kite.OhMyEmma" tests="3" assertions="6" failures="0" errors="0" time="0.014684">
-      <testcase name="testConstructWithNoInterface" class="Kite\OhMyEmma\EmmaTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/EmmaTest.php" line="34" assertions="2" time="0.007053"/>
-      <testcase name="testConstruct" class="Kite\OhMyEmma\EmmaTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/EmmaTest.php" line="47" assertions="2" time="0.003781"/>
-      <testcase name="testBuild" class="Kite\OhMyEmma\EmmaTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/EmmaTest.php" line="65" assertions="2" time="0.003850"/>
+  <testsuite name="" tests="6" assertions="17" failures="0" errors="0" time="0.331892">
+    <testsuite name="Kite\OhMyEmma\EmmaTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/EmmaTest.php" namespace="Kite\OhMyEmma" fullPackage="Kite.OhMyEmma" tests="3" assertions="6" failures="0" errors="0" time="0.015938">
+      <testcase name="testConstructWithNoInterface" class="Kite\OhMyEmma\EmmaTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/EmmaTest.php" line="34" assertions="2" time="0.009003"/>
+      <testcase name="testConstruct" class="Kite\OhMyEmma\EmmaTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/EmmaTest.php" line="47" assertions="2" time="0.003945"/>
+      <testcase name="testBuild" class="Kite\OhMyEmma\EmmaTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/EmmaTest.php" line="65" assertions="2" time="0.002990"/>
     </testsuite>
-    <testsuite name="Kite\OhMyEmma\RequestTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/RequestTest.php" namespace="Kite\OhMyEmma" fullPackage="Kite.OhMyEmma" tests="2" assertions="5" failures="0" errors="0" time="0.286350">
-      <testcase name="test_construct" class="Kite\OhMyEmma\RequestTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/RequestTest.php" line="35" assertions="3" time="0.003745"/>
-      <testcase name="testMakeRequest" class="Kite\OhMyEmma\RequestTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/RequestTest.php" line="52" assertions="2" time="0.282605"/>
+    <testsuite name="Kite\OhMyEmma\RequestTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/RequestTest.php" namespace="Kite\OhMyEmma" fullPackage="Kite.OhMyEmma" tests="3" assertions="11" failures="0" errors="0" time="0.315954">
+      <testcase name="testConstruct" class="Kite\OhMyEmma\RequestTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/RequestTest.php" line="35" assertions="3" time="0.003058"/>
+      <testcase name="testMakeRequest" class="Kite\OhMyEmma\RequestTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/RequestTest.php" line="51" assertions="3" time="0.219486"/>
+      <testcase name="testPostMakeRequest" class="Kite\OhMyEmma\RequestTest" file="/Users/Kite/work/OhMyEmma/Tests/Kite/OhMyEmma/RequestTest.php" line="68" assertions="5" time="0.093410"/>
     </testsuite>
   </testsuite>
 </testsuites>

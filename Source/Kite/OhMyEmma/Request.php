@@ -40,7 +40,7 @@ class Request
      *
      * @var string
      */
-    private $method = 'GET';
+    public $method = 'GET';
 
     /**
      * Emma account id from configuration.
@@ -78,7 +78,7 @@ class Request
      * @param string $public_key
      * @param string $private_key
      */
-    public function _construct($account_id, $public_key, $private_key, $baseURL = '')
+    public function __construct($account_id, $public_key, $private_key, $baseURL = '')
     {
         $this->_id = $account_id;
         $this->_public = $public_key;
@@ -99,13 +99,17 @@ class Request
      */
     public function makeRequest($requestPath)
     {
-        $url = $this->_baseURL . $this->_id . "/". $requestPath;
+        if (isset($requestPath) && $requestPath !== '') {
+            $url = $this->_baseURL . $this->_id . "/". $requestPath;
+        } else {
+            $url = $this->_baseURL;
+        }
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_USERPWD, $this->_public . ":" . $this->_private);
         curl_setopt($ch, CURLOPT_URL, $url);
 
-        if (isset($this->postData)) {
+        if (isset($this->postData) && $this->postData !== '') {
             curl_setopt($ch, CURLOPT_POST, count($this->postData));
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this->postData));
         }
