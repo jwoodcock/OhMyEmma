@@ -12,14 +12,14 @@
 
 namespace Kite\OhMyEmma;
 
-use Kite\OhMyEmma\Fields;
-use Kite\OhMyEmma\Groups;
-use Kite\OhMyEmma\Mailings;
-use Kite\OhMyEmma\Members;
-use Kite\OhMyEmma\Response;
-use Kite\OhMyEmma\Searches;
-use Kite\OhMyEmma\Triggers;
-use Kite\OhMyEmma\Webhooks;
+use Kite\OhMyEmma\Interfaces\Fields;
+use Kite\OhMyEmma\Interfaces\Groups;
+use Kite\OhMyEmma\Interfaces\Mailings;
+use Kite\OhMyEmma\Interfaces\Members;
+use Kite\OhMyEmma\Interfaces\Responses;
+use Kite\OhMyEmma\Interfaces\Searches;
+use Kite\OhMyEmma\Interfaces\Triggers;
+use Kite\OhMyEmma\Interfaces\Webhooks;
 use Kite\OhMyEmma\Request;
 
 class Emma
