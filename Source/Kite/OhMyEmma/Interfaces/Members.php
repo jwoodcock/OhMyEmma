@@ -17,7 +17,10 @@ namespace Kite\OhMyEmma\Interfaces;
 
 /**
  * Class for manipulating member records 
- * using the /members enpoint
+ * using the /members enpoint. For full details
+ * of data formats and individual endpoints refer
+ * to MyEmma.com's documentation. Last found here:
+ * http://api.myemma.com/api/external/members.html
  */
 class Members
 {
