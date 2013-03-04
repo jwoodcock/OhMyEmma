@@ -78,15 +78,11 @@ class Request
      * @param string $public_key
      * @param string $private_key
      */
-    public function __construct($account_id, $public_key, $private_key, $baseURL = '')
+    public function __construct($account_id, $public_key, $private_key)
     {
         $this->_id = $account_id;
         $this->_public = $public_key;
         $this->_private = $private_key;
-
-        if (isset($baseURL) && $baseURL !== '') {
-            $this->_baseURL = $baseURL;
-        }
     }
 
     /**
@@ -99,23 +95,22 @@ class Request
      */
     public function makeRequest($requestPath)
     {
-        if (isset($requestPath) && $requestPath !== '') {
-            $url = $this->_baseURL . $this->_id . "/". $requestPath;
-        } else {
-            $url = $this->_baseURL;
-        }
+        $url = $this->_baseURL . $this->_id . "/". $requestPath;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_USERPWD, $this->_public . ":" . $this->_private);
         curl_setopt($ch, CURLOPT_URL, $url);
 
-        if (isset($this->postData) && $this->postData !== '') {
+        if (isset($this->postData)) {
             curl_setopt($ch, CURLOPT_POST, count($this->postData));
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this->postData));
         }
 
         if ($this->method !== 'GET' && $this->method !== 'POST') {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->method); 
+        } else if ($this->method === 'GET') {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->method); 
+            curl_setopt($ch, CURLOPT_HTTPGET, 'GET');
         }
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
@@ -124,6 +119,10 @@ class Request
 
         $this->response = curl_exec($ch);
         $this->responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        $this->postData = '';
+        $this->method = 'GET';
+        curl_setopt($ch, CURLOPT_HTTPGET, 'GET');
 
         curl_close($ch);
 

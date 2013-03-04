@@ -5,3 +5,4 @@ vendor
 *.phar
 phpunit.xml
 build
+test.php
