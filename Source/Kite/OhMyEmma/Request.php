@@ -131,5 +131,24 @@ class Request
 
     }
 
+    /**
+     * Method for calling request and returning
+     * responses for all member functions
+     *
+     * @param string $url
+     */
+    public function processRequest($url)
+    {
+
+        $this->makeRequest($url);
+
+        $response = array(
+            'details' => $this->response,
+            'code' => $this->responseCode,
+        );
+
+        return $response;
+
+    }
 }
 
