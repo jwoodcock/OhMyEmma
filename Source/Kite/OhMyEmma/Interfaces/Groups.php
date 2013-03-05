@@ -70,7 +70,7 @@ class Groups
             }
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -94,7 +94,7 @@ class Groups
             $url = '/groups/';
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -107,7 +107,7 @@ class Groups
         $url = '/groups/' . $groupId;
         $this->_request->method = 'DELETE';
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -128,7 +128,7 @@ class Groups
             $url .= "/remove";
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -153,7 +153,7 @@ class Groups
             $url .= "?member_status_id=" . $status;
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -170,27 +170,7 @@ class Groups
         $this->_request->postData = $status;
         $url = "/groups/" . $fromGroup ."/". $toGroup . "/members/copy";
 
-        return $this->_processRequest($url);
-    }
-
-    /**
-     * Method for calling request and returning
-     * responses for all member functions
-     *
-     * @param string $url
-     */
-    private function _processRequest($url)
-    {
-
-        $this->_request->makeRequest($url);
-
-        $response = array(
-            'details' => $this->_request->response,
-            'code' => $this->_request->responseCode,
-        );
-
-        return $response;
-
+        return $this->_request->processRequest($url);
     }
 
 }
