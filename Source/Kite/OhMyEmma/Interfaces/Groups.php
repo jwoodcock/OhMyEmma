@@ -150,7 +150,7 @@ class Groups
             $url .= "/remove";
         }
         if ($status !== '') {
-            $url .= "?member_status_id=".$status
+            $url .= "?member_status_id=" . $status;
         }
 
         return $this->_processRequest($url);
