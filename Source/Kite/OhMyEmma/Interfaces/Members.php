@@ -77,7 +77,7 @@ class Members
             $url .= http_build_query($filters);
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
 
     }
 
@@ -110,7 +110,7 @@ class Members
             $url = '/members/email/optout/' . $member['email'];
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
 
     }
 
@@ -132,7 +132,7 @@ class Members
             $url = '/members/'.$member;
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
 
     }
 
@@ -150,7 +150,7 @@ class Members
             $url = "/members/status";
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
 
     }
 
@@ -165,7 +165,7 @@ class Members
         $this->_request->method = "GET";
         $url = '/members/'.$member.'/groups';
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -188,7 +188,7 @@ class Members
             $url = '/members/'.$member.'/groups/remove';
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
 
     }
 
@@ -204,7 +204,7 @@ class Members
         $this->_request->method = "DELETE";
         $url = '/members?member_status_id='.$status;
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
 
     }
 
@@ -228,7 +228,7 @@ class Members
             $url = '/members/groups/remove';
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
 
     }
 
@@ -243,7 +243,7 @@ class Members
         $this->_requests->method = 'GET';
         $url = '/members/'.$member.'/mailings';
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -268,7 +268,7 @@ class Members
             $url = '/members/imports';
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -281,7 +281,7 @@ class Members
         $this->_request->method = "DELETE";
         $url = '/members/imports/'.$importId.'/delete';
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -296,7 +296,7 @@ class Members
         $this->_request->method = "PUT";
         $url = '/members/imports/'.$importId.'/delete';
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -313,31 +313,11 @@ class Members
         
         $this->_request->method = "PUT";
         if ($limitGroup != '') {
-            $this->_request->postData = $limitGroup;
+            $this->postData = $limitGroup;
         }
         $url = '/members/status/'.$fromStatus.'/to/'.$toStatus;
 
-        return $this->_processRequest($url);
-
-    }
-
-    /**
-     * Method for calling request and returning
-     * responses for all member functions
-     *
-     * @param string $url
-     */
-    private function _processRequest($url)
-    {
-
-        $this->_request->makeRequest($url);
-
-        $response = array(
-            'details' => $this->_request->response,
-            'code' => $this->_request->responseCode,
-        );
-
-        return $response;
+        return $this->_request->processRequest($url);
 
     }
 
