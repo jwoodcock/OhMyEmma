@@ -42,7 +42,7 @@ class Webhooks
      */
     public function __construct($request)
     {
-        if ($_request === '' && isset($request) && $request != '') {
+        if (is_object($request)) {
             $this->_request = $request;
         } else {
             return 'You can not use this class without a valid request object';
