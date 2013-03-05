@@ -68,7 +68,7 @@ class Fields
             $url .= '?deleted=true';
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -91,7 +91,7 @@ class Fields
             $url .= '/' . $fieldId;
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -104,7 +104,7 @@ class Fields
         $this->_request->method = "DELETE";
         $url = '/fields/'.$fieldId;
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -118,27 +118,7 @@ class Fields
         $this->_request->method = "DELETE";
         $url = '/fields/'.$fieldId;
 
-        return $this->_processRequest($url);
-    }
-
-    /**
-     * Method for calling request and returning
-     * responses for all member functions
-     *
-     * @param string $url
-     */
-    private function _processRequest($url)
-    {
-
-        $this->_request->makeRequest($url);
-
-        $response = array(
-            'details' => $this->_request->response,
-            'code' => $this->_request->responseCode,
-        );
-
-        return $response;
-
+        return $this->_request->processRequest($url);
     }
 
 }
