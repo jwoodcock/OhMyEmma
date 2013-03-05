@@ -68,7 +68,7 @@ class Triggers
             }
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -90,7 +90,7 @@ class Triggers
             $this->_request->method = 'POST';
         }
 
-        return $this->_processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -103,27 +103,7 @@ class Triggers
         $this->_request->method = 'DELETE';
         $url = '/triggers/' . $triggerId;
 
-        return $this->_processRequest($url);
-    }
-
-    /**
-     * Method for calling request and returning
-     * responses for all member functions
-     *
-     * @param string $url
-     */
-    private function _processRequest($url)
-    {
-
-        $this->_request->makeRequest($url);
-
-        $response = array(
-            'details' => $this->_request->response,
-            'code' => $this->_request->responseCode,
-        );
-
-        return $response;
-
+        return $this->_request->processRequest($url);
     }
 
 }
