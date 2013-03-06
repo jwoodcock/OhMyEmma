@@ -55,6 +55,37 @@ Available interfaces are: (case sensitive)
 * triggers
 * webhooks
 
+Each interface has their unique set of methods. It's best to at least read 
+through those files. These interfaces are saved as the $control object within
+the main OhMyEmma object. 
+
+Here is an example of using the members to add a new member and then retreave
+an updated list of members. 
+
+<code>
+<pre>
+    $emma = new Emma(
+        $account_id,
+        $public_api_key,
+        $private_api_key,
+        'members'
+    );
+
+    $newUser = array(
+        'email' => 'notso@fast.com',
+        'fields' => array(
+            'first_name' => 'Jacques',
+            'last_name' => 'Woodcock'
+        )
+    );
+
+    $emma->control->addUpdateMember($newUser);
+    $memberList = $emma->control->getMembers();
+
+    print_r($memberList);
+</pre>
+</code>
+
 ## License ##
 
 Copyright (c) 2013, Kite, Inc All rights reserved.
