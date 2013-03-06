@@ -21,15 +21,15 @@ With that, we give you OhMyEmma
 You have two options for using this library, clone this repo then move it to your 
 desired location and second USE COMPOSER. So, USE COMPOSER. ;-)
 
-<code>
 <pre>
-{
-    "require": {
-        "kite/ohmyemma": "1.*"
-    }
-}
+    <code>
+        {
+            "require": {
+                "kite/ohmyemma": "1.*"
+            }
+        }
+    </code>
 </pre>
-</code>
 
 ## Usage ##
 
@@ -37,16 +37,16 @@ desired location and second USE COMPOSER. So, USE COMPOSER. ;-)
 
 Create a new instance, provide account credentials and which interface 
 you wish to use. 
-<code>
 <pre>
-$emma = new Emma(
-    $account_id,
-    $public_api_key,
-    $private_api_key,
-    $interface
-);
+    <code>
+        $emma = new Emma(
+            $account_id,
+            $public_api_key,
+            $private_api_key,
+            $interface
+        );
+    </code>
 </pre>
-</code>
 Available interfaces are: (case sensitive)
 * fields
 * groups
@@ -66,29 +66,29 @@ the main OhMyEmma object.
 Here is an example of using the members interface to add a new member and then 
 retreave an updated list of members. 
 
-<code>
 <pre>
-    $emma = new Emma(
-        $account_id,
-        $public_api_key,
-        $private_api_key,
-        'members'
-    );
+    <code>
+        $emma = new Emma(
+            $account_id,
+            $public_api_key,
+            $private_api_key,
+            'members'
+        );
 
-    $newUser = array(
-        'email' => 'notso@fast.com',
-        'fields' => array(
-            'first_name' => 'Jacques',
-            'last_name' => 'Woodcock'
-        )
-    );
+        $newUser = array(
+            'email' => 'notso@fast.com',
+            'fields' => array(
+                'first_name' => 'Jacques',
+                'last_name' => 'Woodcock'
+            )
+        );
 
-    $emma->control->addUpdateMember($newUser);
-    $memberList = $emma->control->getMembers();
+        $emma->control->addUpdateMember($newUser);
+        $memberList = $emma->control->getMembers();
 
-    print_r($memberList);
+        print_r($memberList);
+    </code>
 </pre>
-</code>
 
 ## License ##
 
