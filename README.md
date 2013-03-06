@@ -25,7 +25,7 @@ desired location and second USE COMPOSER. So, USE COMPOSER. ;-)
 <pre>
 {
     "require": {
-        "OhMyEmma": "1.*"
+        "kite/ohmyemma": "1.*"
     }
 }
 </pre>
