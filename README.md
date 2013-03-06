@@ -24,9 +24,10 @@ desired location and second USE COMPOSER. So, USE COMPOSER. ;-)
 <code>
 <pre>
 {
-"require": {
-"OhMyEmma": "1.*"
+<pre> "require": {
+<pre> "OhMyEmma": "1.*"</pre>
 }
+</pre>
 }
 </pre>
 </code>
