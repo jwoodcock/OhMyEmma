@@ -11,14 +11,14 @@ only be updated when users find a need or inform the authors of a change.
 
 Additionally, to properly use this library it is best to read and understand
 the documentation for how filters, arrays and other parameters should be 
-structure as this library is not intended to validate the data structures 
+structured as this library is not intended to validate the data structures 
 provided to it. 
 
 With that, we give you OhMyEmma
 
 ## Installing ##
 
-You have two options for using this library, first download and move to your 
+You have two options for using this library, clone this repo then move it to your 
 desired location and second USE COMPOSER. So, USE COMPOSER. ;-)
 
 <code>
@@ -33,8 +33,10 @@ desired location and second USE COMPOSER. So, USE COMPOSER. ;-)
 
 ## Usage ##
 
-Create a new instance and provide account credentials and which interface 
-you want to use. 
+### Create an Instance ###
+
+Create a new instance, provide account credentials and which interface 
+you wish to use. 
 <code>
 <pre>
 $emma = new Emma(
@@ -59,8 +61,10 @@ Each interface has their unique set of methods. It's best to at least read
 through those files. These interfaces are saved as the $control object within
 the main OhMyEmma object. 
 
-Here is an example of using the members to add a new member and then retreave
-an updated list of members. 
+### Usage of the Control Object ###
+
+Here is an example of using the members interface to add a new member and then 
+retreave an updated list of members. 
 
 <code>
 <pre>
