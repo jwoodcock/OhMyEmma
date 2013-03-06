@@ -24,9 +24,23 @@ desired location and second USE COMPOSER. So, USE COMPOSER. ;-)
 <code>
 <pre>
 {
-  "require": {
-    "OhMyEmma": "1.*"
-  }
+    "require": {
+        "OhMyEmma": "1.*"
+    }
 }
+</pre>
+</code>
+
+## Usage ##
+
+Create a new instance. 
+<code>
+<pre>
+$emma = new Emma(
+    $account_id,
+    $public_api_key,
+    $private_api_key,
+    $interface
+);
 </pre>
 </code>
