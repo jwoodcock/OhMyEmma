@@ -28,12 +28,6 @@ use Kite\OhMyEmma\Request;
 class Emma
 {
 
-    /**
-     * Object built from interface request 
-     *
-     * @var object 
-     */
-    public $control = '';
 
     /**
      * cURL request object
@@ -58,8 +52,7 @@ class Emma
     public function __construct(
         $account_id, 
         $public_key, 
-        $private_key, 
-        $interface = '')
+        $private_key)
     {
 
         $this->_request = new Request(
@@ -67,55 +60,40 @@ class Emma
             $public_key, 
             $private_key
         );
-
-        if (isset($interface) && $interface != '') {
-            $this->build($interface, $this->_request);
-        }
-
     }
 
     /**
      *
-     * Factory method for building control object.
+     * Magic method called when reading inaccessible properties
+     * This method will instantiate interfaces if they have not
+     * yet been instantiated.
      * 
-     * @param string $interface
+     * @param string $property
      */
+    public function __get($interface){
+        $interface = strtolower($interface);
 
-    public function build($interface, $_request)
-    {
-        switch ($interface) {
-            case 'fields':
-                $this->control = new Fields($_request);
-                break;
+        //check if the passed property matches our interfaces
+        if(in_array($interface, array(
+            'fields',
+            'groups',
+            'mailings',
+            'members',
+            'response',
+            'searches',
+            'triggers',
+            'webhooks')))
+        {
+            //if this interface has not been instantiated, create a new instance
+            if(!isset($this->$interface)){
+                $reflectedInterface = new ReflectionClass(ucfirst($interface));
+                $this->$interface = $reflectedInterface->newInstanceArgs(array('_request' => $this->_request));
+                return $this->$interface;
+            }
 
-            case 'groups':
-                $this->control = new Groups($_request);
-                break;
-
-            case 'mailings';
-                $this->control = new Mailings($_request);
-                break;
-
-            case 'members':
-                $this->control = new Members($_request);
-                break;
-
-            case 'response';
-                $this->control = new Response($_request);
-                break;
-
-            case 'searches';
-                $this->control = new Searches($_request);
-                break;
-
-            case 'triggers';
-                $this->control = new Triggers($_request);
-                break;
-
-            case 'webhooks';
-                $this->control = new Webhooks($_request);
-                break;
+            //otherwise, return the existing instance
+            return $this->$interface;
         }
+        return;
     }
-
 }
