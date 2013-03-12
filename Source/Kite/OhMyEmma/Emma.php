@@ -71,22 +71,22 @@ class Emma
      * @param string $property
      */
     public function __get($interface){
-        $interface = strtolower($interface);
+        
 
         //check if the passed property matches our interfaces
         if(in_array($interface, array(
-            'fields',
-            'groups',
-            'mailings',
-            'members',
-            'response',
-            'searches',
-            'triggers',
-            'webhooks')))
+            'Fields',
+            'Groups',
+            'Mailings',
+            'Members',
+            'Response',
+            'Searches',
+            'Triggers',
+            'Webhooks')))
         {
             //if this interface has not been instantiated, create a new instance
             if(!isset($this->$interface)){
-                $reflectedInterface = new \ReflectionClass('\\Kite\\OhMyEmma\\Interfaces\\' .ucfirst($interface));
+                $reflectedInterface = new \ReflectionClass('\\Kite\\OhMyEmma\\Interfaces\\' . $interface);
                 $this->$interface = $reflectedInterface->newInstanceArgs(array('_request' => $this->_request));
                 return $this->$interface;
             }
