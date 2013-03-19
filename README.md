@@ -35,30 +35,29 @@ desired location and second USE COMPOSER. So, USE COMPOSER. ;-)
 
 ### Create an Instance ###
 
-Create a new instance, provide account credentials and which interface 
-you wish to use. 
+Create a new instance by providing account credentials.
 <pre>
     <code>
         $emma = new Emma(
             $account_id,
             $public_api_key,
-            $private_api_key,
-            $interface
+            $private_api_key
         );
     </code>
 </pre>
+
 Available interfaces are: (case sensitive)
-* fields
-* groups
-* mailings
-* members
-* response
-* searches
-* triggers
-* webhooks
+* Fields
+* Groups
+* Mailings
+* Members
+* Response
+* Searches
+* Triggers
+* Webhooks
 
 Each interface has their unique set of methods. It's best to at least read 
-through those files. These interfaces are saved as the $control object within
+through those files. These interfaces are saved as an object within
 the main OhMyEmma object. 
 
 ### Usage of the Control Object ###
@@ -72,7 +71,6 @@ retreave an updated list of members.
             $account_id,
             $public_api_key,
             $private_api_key,
-            'members'
         );
 
         $newUser = array(
@@ -83,8 +81,8 @@ retreave an updated list of members.
             )
         );
 
-        $emma->control->addUpdateMember($newUser);
-        $memberList = $emma->control->getMembers();
+        $emma->Members->addUpdateMember($newUser);
+        $memberList = $emma->Members->getMembers();
 
         print_r($memberList);
     </code>

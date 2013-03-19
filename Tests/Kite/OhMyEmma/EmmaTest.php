@@ -50,8 +50,7 @@ class EmmaTest extends \PHPUnit_Framework_TestCase
         $emma = new Emma(
             '1111',
             '2222',
-            '3333',
-            'members'
+            '3333'
         );
 
         $this->assertInstanceOf("Kite\OhMyEmma\Emma", $emma);
@@ -60,22 +59,24 @@ class EmmaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Kite\OhMyEmma\Emma::build
+     * @covers Kite\OhMyEmma\Emma::__get
      */
-    public function testBuild()
+    public function testGet()
     {
         $emma = new Emma(
             '1111',
             '2222',
             '3333',
-            ''
         );
 
-        $request = "holder";
-
-        $this->assertEmpty($emma->control);
-        $emma->build('members', $request);
-        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Members", $emma->control);
-
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Fields", $emma->Fields);
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Groups", $emma->Groups);
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Mailings", $emma->Mailings);
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Members", $emma->Members);
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Response", $emma->Response);
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Searches", $emma->Searches);
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Triggers", $emma->Triggers);
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Webhooks", $emma->Webhooks);
+        
     }
 }
