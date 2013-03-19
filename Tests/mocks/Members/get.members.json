@@ -1,0 +1,40 @@
+[
+  {
+    "status": "active",
+    "confirmed_opt_in": null,
+    "account_id": 100,
+    "fields": {
+      "first_name": "Emma",
+      "last_name": "Smith",
+      "favorite_food": "tacos"
+    },
+    "member_id": 200,
+    "last_modified_at": null,
+    "member_status_id": "a",
+    "plaintext_preferred": false,
+    "email_error": null,
+    "member_since": "@D:2010-11-12T11:23:45",
+    "bounce_count": 0,
+    "deleted_at": null,
+    "email": "emma@myemma.com"
+  },
+  {
+    "status": "opt-out",
+    "confirmed_opt_in": null,
+    "account_id": 100,
+    "fields": {
+      "first_name": "Gladys",
+      "last_name": "Jones",
+      "favorite_food": "toast"
+    },
+    "member_id": 201,
+    "last_modified_at": null,
+    "member_status_id": "o",
+    "plaintext_preferred": false,
+    "email_error": null,
+    "member_since": "@D:2011-01-03T15:54:13",
+    "bounce_count": 0,
+    "deleted_at": null,
+    "email": "gladys@myemma.com"
+  }
+]
