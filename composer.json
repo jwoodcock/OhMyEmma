@@ -20,7 +20,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Kite\\OhMyEmma": "Source/"
+            "Kite\\OhMyEmma": "Source/",
+            "Test\\Kite\\OhMyEmma": "Tests/"
         }
     }
 }

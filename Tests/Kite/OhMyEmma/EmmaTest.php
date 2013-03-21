@@ -66,14 +66,14 @@ class EmmaTest extends \PHPUnit_Framework_TestCase
         $emma = new Emma(
             '1111',
             '2222',
-            '3333',
+            '3333'
         );
 
         $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Fields", $emma->Fields);
         $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Groups", $emma->Groups);
         $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Mailings", $emma->Mailings);
         $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Members", $emma->Members);
-        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Response", $emma->Response);
+        $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Responses", $emma->Responses);
         $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Searches", $emma->Searches);
         $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Triggers", $emma->Triggers);
         $this->assertInstanceOf("Kite\OhMyEmma\Interfaces\Webhooks", $emma->Webhooks);

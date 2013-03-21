@@ -22,7 +22,7 @@ namespace Kite\OhMyEmma\Interfaces;
  * to MyEmma.com's documentation. Last found here:
  * http://api.myemma.com/api/external/response.html
  */
-class Responeses 
+class Responses 
 {
 
     /**
