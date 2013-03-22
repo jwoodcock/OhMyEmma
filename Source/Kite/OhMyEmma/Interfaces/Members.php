@@ -62,19 +62,23 @@ class Members
     {
         $url = '/members';
 
-        if ($member !== '' 
-            && filter_var($member, FILTER_VALIDATE_EMAIL) !== false
+        if (
+            $member !== '' 
+            && filter_var($member, FILTER_VALIDATE_EMAIL) === false
         ) {
-            $url .= "/email/".$member;
-        } else if ($member !== '') {
-            $url .= $member;
+            $url .= "/".$member;
             if ($optOut === true) {
                 $url .= '/optout';
             }
+        } else if (
+            $member !== ''
+            && filter_var($member, FILTER_VALIDATE_EMAIL) !== false 
+        ) {
+            $url .= '/email/' . $member;
         }
 
         if (is_array($filters) === true) {
-            $url .= http_build_query($filters);
+            $url .= '?' . http_build_query($filters);
         }
 
         return $this->_request->processRequest($url);
