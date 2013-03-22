@@ -14,20 +14,17 @@ class RequestMock
      * Property to set to pull
      * the right mock folder
      */
-    public $_baseURL = '';
+    public $baseURL = '';
+    public $callURL = '';
 
     public function __construct()
     {
     }
 
-    public function processRequest($url)
+    public function processRequest($url = '')
     {
-        if (in_array($_baseURL, $folders) !== true) {
-            $return = "No mock folder found.";
-        } else {
-            $return = require_once($this->_baseURL.$url);
-        }
-        return $return;
+        $this->baseURL = $url;
+        return $this->baseURL;
     }
 
 }
