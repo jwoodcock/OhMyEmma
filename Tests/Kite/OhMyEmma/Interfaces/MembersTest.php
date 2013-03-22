@@ -22,7 +22,10 @@ class MembersTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->request = new RequestMock();
+        $this->assertEquals('', $this->request->baseURL);
+ 
         $this->members = new Members($this->request);
+        $this->assertObjectHasAttribute('_request', $this->members);
     }
 
     /**
@@ -35,14 +38,30 @@ class MembersTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::getMembers
-     * @todo   Implement testGetMembers().
      */
     public function testGetMembers()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        $this->assertEquals('/members', $this->members->getMembers());
+        $this->assertEquals(
+            '/members/email/test@you.com',
+            $this->members->getMembers('test@you.com')
         );
+        $this->assertEquals(
+            '/members/1122/optout',
+            $this->members->getMembers('1122', true)
+        );
+        $params = array(
+            'yellow'=>'true',
+            'blue'=>'false'
+        );
+        $this->assertEquals(
+            '/members/1122?yellow=true&blue=false',
+            $this->members->getMembers('1122', false, $params)
+        );
+
     }
 
     /**
