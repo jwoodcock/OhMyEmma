@@ -44,15 +44,22 @@ class MembersTest extends \PHPUnit_Framework_TestCase
         $this->request = new RequestMock();
         $this->members = new Members($this->request);
 
+        // Test getting all members
         $this->assertEquals('/members', $this->members->getMembers());
+
+        // Testing getting member by email
         $this->assertEquals(
             '/members/email/test@you.com',
             $this->members->getMembers('test@you.com')
         );
+
+        // Test getting member even optout
         $this->assertEquals(
             '/members/1122/optout',
             $this->members->getMembers('1122', true)
         );
+
+        // Testing getting members with filters
         $params = array(
             'yellow'=>'true',
             'blue'=>'false'
@@ -66,145 +73,241 @@ class MembersTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::updateAddMember
-     * @todo   Implement testUpdateAddMember().
      */
     public function testUpdateAddMember()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing adding a single members 
+        $this->assertEquals(
+            '/members/add?name=yo', 
+            $this->members->updateAddMember(
+                array('name' => 'yo')
+            )
+        );
+
+        // Testing adding a batch of members
+        $this->assertEquals(
+            '/members?members=yo', 
+            $this->members->updateAddMember(array('members' => 'yo'))
+        );
+
+        // Testing opting out a single member
+        $this->assertEquals(
+            '/members/email/optout/yo?email=yo', 
+            $this->members->updateAddMember(array('email' => 'yo'), true)
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::removeMember
-     * @todo   Implement testRemoveMember().
      */
     public function testRemoveMember()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing deleting a group of members 
+        $this->assertEquals(
+            '/members/delete?name=yo', 
+            $this->members->removeMember(
+                array('name' => 'yo')
+            )
+        );
+
+        // Testing deleting a single members 
+        $this->assertEquals(
+            '/members/yo@yo.com', 
+            $this->members->removeMember('yo@yo.com')
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::changeStatus
-     * @todo   Implement testChangeStatus().
      */
     public function testChangeStatus()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing deleting a group of members 
+        $this->assertEquals(
+            '/members/status?name=yo', 
+            $this->members->changeStatus(
+                array('name' => 'yo')
+            )
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::getGroups
-     * @todo   Implement testGetGroups().
      */
     public function testGetGroups()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing deleting a group of members 
+        $this->assertEquals(
+            '/members/201/groups',
+            $this->members->getGroups('201')
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::addRemoveGroupMembers
-     * @todo   Implement testAddRemoveGroupMembers().
      */
     public function testAddRemoveGroupMembers()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing add members to group
+        $this->assertEquals(
+            '/members/201/groups?groups=non',
+            $this->members->addRemoveGroupMembers(
+                '201', 
+                array('groups' => 'non')
+            )
+        );
+        // Testing removing members from group
+        $this->assertEquals(
+            '/members/201/groups/remove?groups=remove',
+            $this->members->addRemoveGroupMembers(
+                '201', 
+                array('groups' => 'remove'),
+                true
+            )
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::removeAllMembers
-     * @todo   Implement testRemoveAllMembers().
      */
     public function testRemoveAllMembers()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing add members to group
+        $this->assertEquals(
+            '/members?member_status_id=e',
+            $this->members->removeAllMembers('e')
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::removeFromGroup
-     * @todo   Implement testRemoveFromGroup().
      */
     public function testRemoveFromGroup()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing removing member from group
+        $this->assertEquals(
+            '/members/group/groups',
+            $this->members->removeFromGroup('group')
         );
+        // Testing removing batch members from group
+        $this->assertEquals(
+            '/members/groups/remove?member=batch',
+            $this->members->removeFromGroup(array('member' => 'batch'))
+        );
+
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::getMemberMailingHistory
-     * @todo   Implement testGetMemberMailingHistory().
      */
     public function testGetMemberMailingHistory()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing removing member from group
+        $this->assertEquals(
+            '/members/memberId/mailings',
+            $this->members->getMemberMailingHistory('memberId')
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::getImportInformation
-     * @todo   Implement testGetImportInformation().
      */
     public function testGetImportInformation()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing testing getting import information from id
+        $this->assertEquals(
+            '/members/imports/importId',
+            $this->members->getImportInformation('importId')
+        );
+        // Testing testing getting import information from id and
+        // show members only
+        $this->assertEquals(
+            '/members/imports/importId/members',
+            $this->members->getImportInformation('importId', true)
+        );
+        // Get all imports
+        $this->assertEquals(
+            '/members/imports',
+            $this->members->getImportInformation()
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::deleteImport
-     * @todo   Implement testDeleteImport().
      */
     public function testDeleteImport()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        $this->assertEquals(
+            '/members/imports/importId/delete',
+            $this->members->deleteImport('importId')
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::groupStatuses
-     * @todo   Implement testGroupStatuses().
      */
     public function testGroupStatuses()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        $this->assertEquals(
+            '/members/imports/importId/delete',
+            $this->members->groupStatuses('importId')
         );
     }
 
     /**
      * @covers Kite\OhMyEmma\Interfaces\Members::convertStatus
-     * @todo   Implement testConvertStatus().
      */
     public function testConvertStatus()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->request = new RequestMock();
+        $this->members = new Members($this->request);
+
+        // Testing without group limits
+        $this->assertEquals(
+            '/members/status/from/to/to',
+            $this->members->convertStatus('from', 'to')
+        );
+        // Testing with group limits
+        $this->assertEquals(
+            '/members/status/from/to/to?limitgroup=true',
+            $this->members->convertStatus(
+                'from', 
+                'to', 
+                array('limitgroup' => 'true')
+            )
         );
     }
 }

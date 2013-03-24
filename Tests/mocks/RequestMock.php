@@ -16,6 +16,8 @@ class RequestMock
      */
     public $baseURL = '';
     public $callURL = '';
+    public $postData = array();
+    public $method = 'GET';
 
     public function __construct()
     {
@@ -24,6 +26,9 @@ class RequestMock
     public function processRequest($url = '')
     {
         $this->baseURL = $url;
+        if (count($this->postData) >  0) {
+            $this->baseURL .= "?" . http_build_query($this->postData);
+        }
         return $this->baseURL;
     }
 

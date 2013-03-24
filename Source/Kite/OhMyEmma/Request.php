@@ -81,11 +81,15 @@ class Request
      * @param string $public_key
      * @param string $private_key
      */
-    public function __construct($account_id, $public_key, $private_key)
+    public function __construct($account_id, $public_key, $private_key, $newBase = '')
     {
         $this->_id = $account_id;
         $this->_public = $public_key;
         $this->_private = $private_key;
+
+        if (isset($newBase) && $newBase != '') {
+            $this->_baseURL = $newBase;
+        }
     }
 
     /**
@@ -98,7 +102,10 @@ class Request
      */
     public function makeRequest($requestPath)
     {
-        $url = $this->_baseURL . $this->_id . "/". $requestPath;
+        $url = $this->_baseURL;
+        if (isset($requestPath) && $requestPath !== '') {
+            $url .= $this->_id . "/". $requestPath;
+        }
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_USERPWD, $this->_public . ":" . $this->_private);

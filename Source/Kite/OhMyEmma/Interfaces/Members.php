@@ -132,6 +132,7 @@ class Members
             $this->_request->method = 'PUT';
             $url = '/members/delete';
         } else {
+            $this->_request->postData = array();
             $this->_request->method = 'DELETE';
             $url = '/members/'.$member;
         }
@@ -244,8 +245,8 @@ class Members
      */
     public function getMemberMailingHistory($member)
     {
-        $this->_requests->method = 'GET';
-        $url = '/members/'.$member.'/mailings';
+        $this->_request->method = 'GET';
+        $url = '/members/' . $member . '/mailings';
 
         return $this->_request->processRequest($url);
     }
@@ -259,7 +260,7 @@ class Members
      */
     public function getImportInformation(
         $importId = '',
-        $showMemebersOnly = false
+        $showMembersOnly = false
     )
     {
         $this->_request->method = "GET";
@@ -298,7 +299,7 @@ class Members
     public function groupStatuses($statuses)
     {
         $this->_request->method = "PUT";
-        $url = '/members/imports/'.$importId.'/delete';
+        $url = '/members/imports/'.$statuses.'/delete';
 
         return $this->_request->processRequest($url);
     }
@@ -317,7 +318,7 @@ class Members
         
         $this->_request->method = "PUT";
         if ($limitGroup != '') {
-            $this->postData = $limitGroup;
+            $this->_request->postData = $limitGroup;
         }
         $url = '/members/status/'.$fromStatus.'/to/'.$toStatus;
 

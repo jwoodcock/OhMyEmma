@@ -79,7 +79,7 @@ class Emma
             'Groups',
             'Mailings',
             'Members',
-            'Response',
+            'Responses',
             'Searches',
             'Triggers',
             'Webhooks')))

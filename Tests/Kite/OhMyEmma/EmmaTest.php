@@ -54,7 +54,7 @@ class EmmaTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertInstanceOf("Kite\OhMyEmma\Emma", $emma);
-        $this->assertNotEmpty($emma->control);
+        $this->assertNotEmpty($emma->Members);
 
     }
 
