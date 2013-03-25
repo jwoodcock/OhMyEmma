@@ -91,7 +91,7 @@ class Groups
         } else {
             $this->_request->method = 'POST';
             $this->_request->postData = $groups;
-            $url = '/groups/';
+            $url = '/groups';
         }
 
         return $this->_request->processRequest($url);
@@ -123,7 +123,7 @@ class Groups
     {
         $this->_request->method = "PUT";
         $this->_request->postData = $members;
-        $url = "/groups/".$groupId."members";
+        $url = "/groups/".$groupId."/members";
         if ($remove === true) {
             $url .= "/remove";
         }
@@ -145,7 +145,7 @@ class Groups
     public function removeAllMembers($groupId, $status = '', $removeAll = false)
     {
         $this->_request->method = "DELETE";
-        $url = "/groups/".$groupId."members";
+        $url = "/groups/".$groupId."/members";
         if ($removeAll === true) {
             $url .= "/remove";
         }
