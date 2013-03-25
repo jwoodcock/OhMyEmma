@@ -57,7 +57,7 @@ class Fields
      * @param string $fieldId
      * @param boolean $showDeleted
      */
-    public function getField($fieldId = '', $showDeleted = true)
+    public function getField($fieldId = '', $showDeleted = false)
     {
         $this->_request->method = 'GET';
         $url = '/fields';
