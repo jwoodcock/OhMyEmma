@@ -68,7 +68,7 @@ class Webhooks
             $url .= '/events';
         }
 
-        $this->_request->processRequest($url);
+        return $this->_request->processRequest($url);
     }
 
     /**
@@ -99,7 +99,7 @@ class Webhooks
      *
      * @param string $webhookId
      */
-    public function removeWebhook($webhook) 
+    public function removeWebhook($webhookId) 
     {
         $this->_request->method = 'DELETE';
         $url = '/webhooks';
