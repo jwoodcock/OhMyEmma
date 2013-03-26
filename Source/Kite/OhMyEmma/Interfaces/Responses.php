@@ -126,9 +126,6 @@ class Responses
                     break;
             }
         }
-        if ($filters) {
-            $url .= '?' . http_build_query($filters);
-        }
 
         return $this->_request->processRequest($url);
     }
