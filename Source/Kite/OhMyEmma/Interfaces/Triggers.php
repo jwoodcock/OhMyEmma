@@ -79,7 +79,7 @@ class Triggers
      * @param array $trigger
      * @param string $triggerId
      */
-    public function addUpdateTrigger($trigger, $triggerId)
+    public function addUpdateTrigger($trigger, $triggerId = '')
     {
         $url = '/triggers';
         $this->_request->postData = $trigger;
