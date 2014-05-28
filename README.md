@@ -81,7 +81,7 @@ retreave an updated list of members.
             )
         );
 
-        $emma->Members->addUpdateMember($newUser);
+        $emma->Members->updateAddMember($newUser);
         $memberList = $emma->Members->getMembers();
 
         print_r($memberList);
