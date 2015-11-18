@@ -111,7 +111,7 @@ class Request
         curl_setopt($ch, CURLOPT_USERPWD, $this->_public . ":" . $this->_private);
         curl_setopt($ch, CURLOPT_URL, $url);
 
-        if (isset($this->postData)) {
+        if (!empty($this->postData)) {
             curl_setopt($ch, CURLOPT_POST, count($this->postData));
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this->postData));
         }
