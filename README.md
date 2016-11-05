@@ -47,6 +47,7 @@ Create a new instance by providing account credentials.
 </pre>
 
 Available interfaces are: (case sensitive)
+* Events
 * Fields
 * Groups
 * Mailings
