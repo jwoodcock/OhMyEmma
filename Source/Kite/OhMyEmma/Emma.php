@@ -15,6 +15,7 @@
 
 namespace Kite\OhMyEmma;
 
+use Kite\OhMyEmma\Interfaces\Events;
 use Kite\OhMyEmma\Interfaces\Fields;
 use Kite\OhMyEmma\Interfaces\Groups;
 use Kite\OhMyEmma\Interfaces\Mailings;
@@ -75,6 +76,7 @@ class Emma
 
         //check if the passed property matches our interfaces
         if(in_array($interface, array(
+            'Events',
             'Fields',
             'Groups',
             'Mailings',

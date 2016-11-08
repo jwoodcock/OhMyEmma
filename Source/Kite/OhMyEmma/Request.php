@@ -71,7 +71,7 @@ class Request
      *
      * @var string
      */
-    private $_baseURL = 'https://api.e2ma.net/';
+    public $_baseURL = 'https://api.e2ma.net/';
 
     /**
      *
