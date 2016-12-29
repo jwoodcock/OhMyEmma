@@ -103,8 +103,8 @@ class Responses
                 case 'forwards':
                     $url .= '/forwards';
                     break;
-                case 'outputs':
-                    $url .= '/outputs';
+                case 'optouts':
+                    $url .= '/optouts';
                     break;
                 case 'signups':
                     $url .= '/signups';
