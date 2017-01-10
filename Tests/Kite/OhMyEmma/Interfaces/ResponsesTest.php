@@ -108,10 +108,10 @@ class ResponsesTest extends \PHPUnit_Framework_TestCase
             '/response/mailingId/forwards',
             $this->responses->getResponseDetails('mailingId', 'forwards')
         );
-        // Testing get response details with subinformation outputs
+        // Testing get response details with subinformation optouts 
         $this->assertEquals(
-            '/response/mailingId/outputs',
-            $this->responses->getResponseDetails('mailingId', 'outputs')
+            '/response/mailingId/optouts',
+            $this->responses->getResponseDetails('mailingId', 'optouts')
         );
         // Testing get response details with subinformation singups
         $this->assertEquals(
