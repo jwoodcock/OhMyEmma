@@ -57,7 +57,7 @@ class Mailings
      * @param string $mailingId
      * @param boolean $member
      */
-    public function getMailings($mailingId = '', $member = false)
+    public function getMailings($mailingId = '', $member = false, $filters = array())
     {
         $this->_request->method = "GET";
         $url = '/mailings';
@@ -66,6 +66,10 @@ class Mailings
             if ($member === true) {
                 $url .= '/members';
             }
+        }
+
+        if (is_array($filters) === true) {
+            $url .= '?' . http_build_query($filters);
         }
 
         return $this->_request->processRequest($url);

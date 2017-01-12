@@ -59,7 +59,7 @@ class Groups
      * @param string $groupId
      * @param boolean $members
      */
-    public function getGroups($groupId = '', $members = false)
+    public function getGroups($groupId = '', $members = false, $filters = array())
     {
         $this->_request->method = 'GET';
         $url = "/groups";
@@ -68,6 +68,10 @@ class Groups
             if ($members === true) {
                 $url .= "/members";
             }
+        }
+
+        if (is_array($filters) === true) {
+            $url .= '?' . http_build_query($filters);
         }
 
         return $this->_request->processRequest($url);
