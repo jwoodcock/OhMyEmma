@@ -76,7 +76,7 @@ class Responses
      * @param string $mailingId
      * @param string $subInformation
      */
-    public function getResponseDetails($mailingId, $subInformation = '')
+    public function getResponseDetails($mailingId, $subInformation = '', $filters = array())
     {
         $this->_request->method = 'GET';
         $url = '/response/' . $mailingId;
@@ -125,6 +125,10 @@ class Responses
                     $url .= '/shares/overview';
                     break;
             }
+        }
+
+        if (is_array($filters) === true) {
+            $url .= '?' . http_build_query($filters);
         }
 
         return $this->_request->processRequest($url);
