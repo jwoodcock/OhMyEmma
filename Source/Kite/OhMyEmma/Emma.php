@@ -89,7 +89,7 @@ class Emma
             //if this interface has not been instantiated, create a new instance
             if(!isset($this->$interface)){
                 $reflectedInterface = new \ReflectionClass('\\Kite\\OhMyEmma\\Interfaces\\' . $interface);
-                $this->$interface = $reflectedInterface->newInstanceArgs(array('_request' => $this->_request));
+                $this->$interface = $reflectedInterface->newInstanceArgs([$this->_request]);
                 return $this->$interface;
             }
 
